@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
+from receitas.models import Receita
 
 
 
@@ -54,3 +55,17 @@ def dashboard(request):
         return render(request, 'usuarios/dashboard.html')
     else:
         return redirect('login')
+
+def cria_receita(request):
+    if request.method == 'POST':
+        nome_receita = request.POST['nome_receita']
+        ingredientes = request.POST['ingredientes']
+        modo_preparo = request.POST['modo_preparo']
+        tempo_preparo = request.POST['tempo_preparo']
+        rendimento = request.POST['rendimento']
+        categoria = request.POST['categoria']
+        foto_receita = request.FILES['foto_receita']
+        return redirect('dashboard')
+    else:
+        return render(request, 'usuarios/cria_receita.html')
+ 
