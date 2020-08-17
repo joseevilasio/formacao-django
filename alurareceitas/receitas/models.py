@@ -1,6 +1,5 @@
 from django.db import models
 from datetime import datetime
-from pessoas.models import Pessoa
 from django.contrib.auth.models import User
 
 # Create your models here.
